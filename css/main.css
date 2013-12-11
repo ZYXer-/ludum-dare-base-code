@@ -1,0 +1,11 @@
+body {
+  padding: 0px;
+  margin: 0px;
+}
+
+#game_box {
+  width: 768px;
+  height: 480px;
+  margin: 50px auto 0px;
+  border: 1px solid #000;
+}
