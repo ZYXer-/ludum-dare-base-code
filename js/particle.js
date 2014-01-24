@@ -39,7 +39,7 @@ function Particle() {
     this.y += this.vY;
     this.life--;
     
-    if(this.life % 20 == 0) {
+    if(this.life % 5 == 0) {
       this.vX += this.minAx + ((this.maxAx - this.minAx) * Math.random());
       this.vY += this.minAy + ((this.maxAy - this.minAy) * Math.random());
     }

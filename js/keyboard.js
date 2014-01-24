@@ -1,10 +1,5 @@
 function Keyboard() {
-  
-  this.ARROW_LEFT = 37;
-  this.ARROW_UP = 38;
-  this.ARROW_RIGHT = 39;
-  this.ARROW_DOWN = 40;
-  
+
   this.keyPressed = {};
   
   this.keyDownHandlers = {};
@@ -60,3 +55,15 @@ function Keyboard() {
   };
   
 }
+
+Keyboard.ARROW_LEFT = 37;
+Keyboard.ARROW_UP = 38;
+Keyboard.ARROW_RIGHT = 39;
+Keyboard.ARROW_DOWN = 40;
+
+Keyboard.W = 87;
+Keyboard.A = 65;
+Keyboard.S = 83;
+Keyboard.D = 68;
+
+Keyboard.SPACE_BAR = 32;
