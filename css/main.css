@@ -3,9 +3,141 @@ body {
   margin: 0px;
 }
 
+form, table {
+  margin: 0px;
+  padding: 0px;
+  border: none;
+}
+
+img {
+  border: 0px;
+}
+
 #game_box {
-  width: 768px;
-  height: 480px;
-  margin: 50px auto 0px;
+  position: relative;
+  width: 960px;
+  height: 600px;
+  margin: 10px auto 0px;
   border: 1px solid #000;
 }
+
+#fps {
+  background: #fff;
+  color: #000;
+}
+
+#online_overlay {
+  display: none;
+  position: absolute;
+  left: 119px;
+  top: 89px;
+  width: 720px;
+  height: 420px;
+  border: 1px solid #000;
+  background: #fff;
+}
+
+#login {
+  float: left;
+  width: 220px;
+  height: 320px;
+  padding: 100px 110px 0px;
+}
+
+#sign_up {
+  float: left;
+  width: 220px;
+  height: 400px;
+  padding: 20px 30px 0px;
+  background: #eee;
+}
+
+#login .title,
+#sign_up .title {
+  color: #060;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 0px 10px 10px;
+  cursor: default;
+}
+
+#login .description,
+#sign_up .description {
+  font-size: 16px;
+  padding: 5px 10px 10px;
+  cursor: default;
+}
+
+#login .input_box,
+#sign_up .input_box {
+  padding: 8px 10px 4px;
+}
+
+#login .error_message,
+#sign_up .error_message {
+  color: #e00;
+  display: none;
+  cursor: default;
+  padding-bottom: 4px;
+}
+
+#login .input_box label,
+#sign_up .input_box label {
+  display: block;
+  cursor: default;
+}
+
+#login .input_box .input,
+#sign_up .input_box .input {
+  height: 26px;
+  padding-bottom: 4px;
+}
+
+#login .input_box .input input,
+#sign_up .input_box .input input {
+  height: 20px;
+  border: 1px solid #666;
+  line-height: 20px;
+  padding: 2px;
+  margin: 0px;
+  width: 194px;
+  border-radius: 2px;
+}
+
+.error_box {
+  background: #fee;
+}
+
+.error_box input {
+  border: 1px solid #e00 !important;
+}
+
+#login .submit_box,
+#sign_up .submit_box {
+  width: 100px;
+  height: 26px;
+  padding: 8px 60px;
+}
+
+#login .submit_box #login_submit,
+#sign_up .submit_box #sign_up_submit {
+  width: 98px;
+  height: 24px;
+  border: 1px solid #060;
+  background: #cfc;
+  color: #060;
+  text-align: center;
+  line-height: 24px;
+  border-radius: 2px;
+  cursor: default;
+}
+
+#login .submit_box #login_submit:hover,
+#sign_up .submit_box #sign_up_submit:hover {
+  background: #efe !important;
+}
+
+.hidden {
+  display: none;
+}
+

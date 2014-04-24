@@ -10,7 +10,7 @@ function randFloat(min, max) {
 
 
 function zeroOrOne(probability) {
-  return rand(0, 999) < (probability * 1000);
+  return rand(0, 999999) < (probability * 1000000);
 }
 
 

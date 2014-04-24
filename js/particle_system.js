@@ -89,7 +89,7 @@ function ParticleSystem() {
   
   
   this.draw = function() {
-    if(this.isOn) {
+    if(this.isOn && !game.paused) {
       if(this.mode == ParticleSystem.CONTINUOUS_MODE || (this.mode == ParticleSystem.BURST_MODE && this.burstNow)) {
         this.burstNow = false;
         for(var i = 0; i < this.particlesPerTick; i++) {

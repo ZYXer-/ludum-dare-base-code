@@ -3,28 +3,37 @@ var game;
 var canvas;
 var c;
 
+var resources;
 var img;
 var fonts;
+var sound;
+
+var preloadingManager;
+var performanceMonitor;
+
 var mouse;
 var keyboard;
+
+var ajax;
 
 
 jQuery(document).ready(function() {
   
-  jQuery("body").attr("unselectable", "on").css("user-select", "none").on("selectstart", false);
-  
   canvas = document.getElementById("game");
   c = canvas.getContext("2d");
   
+  resources = new Resources();
   img = new Img();
-  
   fonts = new Fonts();
+  sound = new Sound();
+  
+  preloadingManager = new PreloadingManager();
+  performanceMonitor = new PerformanceMonitor();
   
   mouse = new Mouse();
-  mouse.init();
+  keyboard = new Keyboard(); 
   
-  keyboard = new Keyboard();
-  keyboard.init();
+  ajax = new Ajax();
   
   game = new Game();
   game.init();

@@ -35,20 +35,27 @@ function Particle() {
   
   this.draw = function() {
     
-    this.x += this.vX;
-    this.y += this.vY;
-    this.life--;
-    
-    if(this.life % 5 == 0) {
-      this.vX += this.minAx + ((this.maxAx - this.minAx) * Math.random());
-      this.vY += this.minAy + ((this.maxAy - this.minAy) * Math.random());
+    // implement particle types here:
+    if(!game.paused) {
+      this.x += this.vX;
+      this.y += this.vY;
+      this.life--;
+      
+      if(this.life % 20 == 0) {
+        this.vX += this.minAx + ((this.maxAx - this.minAx) * Math.random());
+        this.vY += this.minAy + ((this.maxAy - this.minAy) * Math.random());
+      }
     }
     
-    // implement particle types here:
     if(this.type == 1) {
       var opacity = this.life / 60;
       c.fillStyle = "rgba(0, 0, 255, " + opacity + ")";
       c.fillRect(this.x - 20, this.y - 20, 40, 40);
+      
+    } else if(this.type == 2) {
+      var opacity = this.life / 20;
+      c.fillStyle = "rgba(0, 127, 0, " + opacity + ")";
+      c.fillRect(this.x - 10, this.y - 10, 20, 20);
     }
   };
   
