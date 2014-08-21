@@ -7,6 +7,7 @@ var resources;
 var img;
 var fonts;
 var sound;
+var timer;
 
 var preloadingManager;
 var performanceMonitor;
@@ -26,6 +27,7 @@ jQuery(document).ready(function() {
   img = new Img();
   fonts = new Fonts();
   sound = new Sound();
+  timer = new Timer();
   
   preloadingManager = new PreloadingManager();
   performanceMonitor = new PerformanceMonitor();

@@ -23,6 +23,7 @@ if(!defined("AUTH")) {
   <script type="text/javascript" src="js/img.js"></script>
   <script type="text/javascript" src="js/fonts.js"></script>
   <script type="text/javascript" src="js/sound.js"></script>
+  <script type="text/javascript" src="js/timer.js"></script>
   <script type="text/javascript" src="js/mouse.js"></script>
   <script type="text/javascript" src="js/keyboard.js"></script>
   <script type="text/javascript" src="js/preloading_manager.js"></script>

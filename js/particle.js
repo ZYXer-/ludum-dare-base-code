@@ -37,8 +37,8 @@ function Particle() {
     
     // implement particle types here:
     if(!game.paused) {
-      this.x += this.vX;
-      this.y += this.vY;
+      this.x += this.vX * timer.delta;
+      this.y += this.vY * timer.delta;
       this.life--;
       
       if(this.life % 20 == 0) {

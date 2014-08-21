@@ -21,10 +21,16 @@ function Game() {
   this.demoParticleSystem2;
   this.demoShaking;
   this.demoImageRotation = 0;
-
+  
+  // demonstration of online synchronization
+  /*this.demoHoles = [];
+  this.demoMyHoles = [];
+  this.demoSyncCounter = 0;*/
+  
   
   this.init = function() {
     this.drawEmpty(); 
+    timer.init();
     performanceMonitor.init();
     preloadingManager.preloadLoadingScreen();
   };
@@ -50,6 +56,7 @@ function Game() {
   
   this.loop = function() {
     this.initState();
+    timer.update();
     this.update();
     this.draw();
     performanceMonitor.update();
@@ -99,15 +106,15 @@ function Game() {
     this.demoParticleSystem1 = new ParticleSystem();
     this.demoParticleSystem1.setType(1);
     this.demoParticleSystem1.setEmitter(192, 240);
-    this.demoParticleSystem1.setV(-1.0, 1.0, -5.0, -4.0);
-    this.demoParticleSystem1.setA(-0.2, 0.2, -0.0, 0.4);
+    this.demoParticleSystem1.setV(-30.0, 30.0, -150.0, -120.0);
+    this.demoParticleSystem1.setA(-6.0, 6.0, 0.0, 12.0);
     this.demoParticleSystem1.setLife(30, 50);
     
     this.demoParticleSystem2 = new ParticleSystem();
     this.demoParticleSystem2.setMode(ParticleSystem.BURST_MODE);
     this.demoParticleSystem2.setType(2);
-    this.demoParticleSystem2.setV(-8.0, 8.0, -8.0, 8.0);
-    this.demoParticleSystem2.setA(-0.2, 0.2, -0.2, 0.2);
+    this.demoParticleSystem2.setV(-240.0, 240.0, -240.0, 240.0);
+    this.demoParticleSystem2.setA(-6.0, 6.0, -6.0, 6.0);
     this.demoParticleSystem2.setLife(15, 20);
     this.demoParticleSystem2.setParticlesPerTick(50);
     
@@ -120,8 +127,9 @@ function Game() {
         game.demoShaking.shake(6, 18, 2);
         sound.play("cannon");
         
-        game.demoHoles.push({ x : Math.round(mouse.x), y : Math.round(mouse.y) });
-        game.demoMyHoles.push({ x : Math.round(mouse.x), y : Math.round(mouse.y) });
+        // demonstration of online synchronization
+        /*game.demoHoles.push({ x : Math.round(mouse.x), y : Math.round(mouse.y) });
+        game.demoMyHoles.push({ x : Math.round(mouse.x), y : Math.round(mouse.y) });*/
       }
     });
     
@@ -138,7 +146,7 @@ function Game() {
       // update stuff here:
       
       if(!game.paused) {
-        this.demoImageRotation += 0.5;
+        this.demoImageRotation += 10 * timer.delta;
       }
       
     } 
@@ -161,7 +169,7 @@ function Game() {
       
       c.fillStyle = "#fff";
       c.fillRect(0, 0, this.WIDTH, this.HEIGHT);
-      
+
       this.demoText.draw();
       
       this.demoShaking.apply();
@@ -170,7 +178,23 @@ function Game() {
       
       this.demoParticleSystem1.draw();
       this.demoParticleSystem2.draw();
-
+      
+      // demonstration of online synchronization
+      /*for(var i = 0; i < this.demoHoles.length; i++) {
+        c.fillStyle = "#060";
+        c.fillRect(this.demoHoles[i].x - 6, this.demoHoles[i].y - 6, 12, 12);
+      }
+      this.demoSyncCounter--;
+      if(this.demoSyncCounter <= 0) {
+        this.demoSyncCounter = 30;
+        ajax.send("sync", { holes : this.demoMyHoles }, function(data) {
+          if(data.type == "sync" && data.result.hasOwnProperty("holes")) {
+            game.demoHoles = data.result.holes;
+          }
+        });
+        this.demoMyHoles = [];
+      }*/
+      
       this.demoShaking.remove();
     }
   };
